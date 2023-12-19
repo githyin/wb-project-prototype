@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Upload from "./component/upload";
 
 const App = () => {
   const [dynamicData, setDynamicData] = useState({});
@@ -32,7 +31,6 @@ const App = () => {
           </ul>
         )}
       </div>
-      <Upload />
     </div>
   );
 };
