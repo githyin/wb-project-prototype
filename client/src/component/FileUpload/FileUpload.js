@@ -1,10 +1,10 @@
 // FileUpload.js
 import React from "react";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card";
-import styles from "./FileUpload.module.css";
+import { Label } from "./Label";
+import { Input } from "./Input";
+import { Button } from "./Button";
+import { CardTitle, CardHeader, CardContent, Card } from "./Card";
+import styles from "../../css/FileUpload.module.css";
 
 export default function FileUpload() {
   return (
