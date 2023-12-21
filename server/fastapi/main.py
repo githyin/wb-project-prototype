@@ -11,7 +11,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
 # 정적 파일 (CSS, JavaScript 등)을 서비스할 수 있는 StaticFiles 설정
-app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 # 웹소켓 연결을 테스트할 수 있는 웹페이지 (http://127.0.0.1:8000/client)
 @app.get("/client", response_class=HTMLResponse)

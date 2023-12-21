@@ -7,14 +7,17 @@ import styles from '../../css/ChatScreen/ChatScreen.module.css';
 function Chat() {
   const [messageText, setMessageText] = useState('');
   const [messages, setMessages] = useState([]);
-
-  const ws = new WebSocket('ws://localhost:8000/ws');
+  const [ws, setWs] = useState(null);
 
   useEffect(() => {
+    const ws = new WebSocket('ws://localhost:8000/ws');
+
     ws.onmessage = function(event) {
       setMessages(prevMessages => [...prevMessages, event.data]);
     };
 
+    setWs(ws);
+    
     return () => {
       ws.close();
     };
@@ -22,8 +25,10 @@ function Chat() {
 
   const sendMessage = (event) => {
     event.preventDefault();
-    ws.send(messageText);
-    setMessageText('');
+    if(ws && messageText.trim() !== '') {
+      ws.send(JSON.stringify({userId: 'user1', text: messageText.trim()}));
+      setMessageText('');
+    }
   };
 
   return (
@@ -37,7 +42,7 @@ function Chat() {
               ))}
             </div>
           </div>
-          <div className={styles.messageInput}>
+          <form className={styles.messageInput} onSubmit={sendMessage}>
           <input
             className="flex-1"
             placeholder="Type a message..."
@@ -47,7 +52,7 @@ function Chat() {
             autoComplete="off"
           />
           <button type="submit" onClick={sendMessage}>Send</button>
-        </div>
+        </form>
       </div>
     </div>
   );
