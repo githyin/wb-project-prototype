@@ -1,35 +1,50 @@
 // ChatScreen.js
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ChatMessage from './ChatMessage';
 import styles from '../../css/ChatScreen/ChatScreen.module.css';
+import { SocketContext } from '../../socketContext';
+import io from "socket.io-client";
 
 function Chat() {
+  const socket = useContext(SocketContext);
   const [messageText, setMessageText] = useState('');
   const [messages, setMessages] = useState([]);
   const [ws, setWs] = useState(null);
 
-  useEffect(() => {
-    const ws = new WebSocket('ws://localhost:8000/ws');
-
-    ws.onmessage = function(event) {
-      setMessages(prevMessages => [...prevMessages, event.data]);
-    };
-
-    setWs(ws);
-    
-    return () => {
-      ws.close();
-    };
-  }, []);
-
   const sendMessage = (event) => {
     event.preventDefault();
-    if(ws && messageText.trim() !== '') {
-      ws.send(JSON.stringify({userId: 'user1', text: messageText.trim()}));
-      setMessageText('');
-    }
-  };
+    if(socket && messageText.trim() !== '') {
+      socket.emit(JSON.stringify({userId: 'user1', text: messageText.trim()}));
+      setMessageText('');}
+  }
+
+  useEffect(()=>{
+    socket.on("reciveMessage: ", (event) => {
+      setMessages(prevMessages => [...prevMessages, event.data]);
+    })
+  })
+
+  // useEffect(() => {
+  //   const ws = new WebSocket('ws://localhost:8000/ws');
+
+  //   ws.onmessage = function(event) {
+  //     setMessages(prevMessages => [...prevMessages, event.data]);
+  //   };
+
+  //   setWs(ws);
+    
+  //   return () => {
+  //     ws.close();
+  //   };
+  // }, []);
+
+  // const sendMessage = (event) => {
+  //   event.preventDefault();
+  //   if(ws && messageText.trim() !== '') {
+  //     ws.send(JSON.stringify({userId: 'user1', text: messageText.trim()}));
+  //     setMessageText('');
+  //   }
+  // };
 
   return (
     <div className={styles.chatScreen}>

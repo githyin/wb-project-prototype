@@ -1,5 +1,4 @@
 from fastapi import FastAPI, WebSocket, Request
-
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.logger import logger
@@ -7,6 +6,7 @@ from starlette.staticfiles import StaticFiles
 from fastapi_socketio import SocketManager
  
 app = FastAPI()
+
 # HTML 파일을 서비스할 수 있는 Jinja2Templates 설정
 templates = Jinja2Templates(directory="templates")
 
