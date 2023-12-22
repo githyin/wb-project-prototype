@@ -12,6 +12,8 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Sidebar from '../component/Sidebar/Sidebar';
+
 
 function Copyright(props) {
 return (
@@ -24,6 +26,29 @@ return (
     {'.'}
     </Typography>
 );
+}
+
+function sidebar() {
+    const sidebarProps = {
+        color: "blue",
+        image: "url-to-image",
+        routes: [
+            {
+            path: "/dashboard",
+            name: "대시보드",
+            icon: "fa fa-dashboard",
+            layout: "/admin",
+            },
+            // 다른 메뉴 아이템들 추가
+        ],
+    }
+    return (
+        <div>
+          {/* Sidebar 컴포넌트 사용 */}
+        <Sidebar {...sidebarProps} />
+          {/* 나머지 컴포넌트들 */}
+        </div>
+    );
 }
 
 const defaultTheme = createTheme();
