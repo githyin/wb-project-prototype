@@ -1,7 +1,7 @@
 // ChatScreen.js
 import React from "react";
 import ChatMessage from "./ChatMessage";
-import styles from "../../css/ChatScreen/ChatScreen.module.css";
+import styles from "../../assets/css/ChatScreen/ChatScreen.module.css";
 
 export default function ChatScreen() {
   return (

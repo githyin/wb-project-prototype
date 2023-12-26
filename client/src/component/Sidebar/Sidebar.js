@@ -1,64 +1,67 @@
 import React, { Component } from "react";
 import { useLocation, NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
-import reactLogo from '../../img/reactlogo.png';
-import styles from '../../css/Sidebar.module.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../../assets/css/animate.min.css";
+import "../../assets/css/demo.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import '../../assets/css/Sidebar.module.css';
 
 function Sidebar({ color, image, routes }) {
-const location = useLocation();
-const activeRoute = (routeName) => {
+    const location = useLocation();
+    const activeRoute = (routeName) => {
     return location.pathname.indexOf(routeName) > -1 ? "active" : "";
-};
-return (
-    <div className={styles.sidebar} data-image={image} data-color={color}>
-    <div
-        className={styles["sidebar-background"]}
+    };
+    return (
+    <div className="sidebar" data-image={image} data-color={color}>
+        <div
+        className="sidebar-background"
         style={{
-        backgroundImage: "url(" + image + ")"
+            backgroundImage: "url(" + image + ")"
         }}
-    />
-    <div className={styles["sidebar-wrapper"]}>
-        <div className={styles.logo + " d-flex align-items-center justify-content-start"}>
-        <a
+        />
+        <div className="sidebar-wrapper">
+        <div className="logo d-flex align-items-center justify-content-start">
+            <a
             href="https://www.creative-tim.com?ref=lbd-sidebar"
-            className={styles["simple-text"] + " logo-mini mx-1"}
-        >
-            <div className={styles["logo-img"]}>
-            <img src={reactLogo} alt="React Logo" />
+            className="simple-text logo-mini mx-1"
+            >
+            <div className="logo-img">
+                <img src={require("../../assets/img/reactlogo.png")} alt="..." />
             </div>
-        </a>
-        <a className={styles["simple-text"]} href="http://www.creative-tim.com">
+            </a>
+            <a className="simple-text" href="http://www.creative-tim.com">
             Creative Tim
-        </a>
+            </a>
         </div>
         <Nav>
-        {routes.map((prop, key) => {
+            {routes.map((prop, key) => {
             if (!prop.redirect)
-            return (
+                return (
                 <li
-                className={
+                    className={
                     prop.upgrade
-                    ? "active active-pro"
-                    : activeRoute(prop.layout + prop.path)
-                }
-                key={key}
+                        ? "active active-pro"
+                        : activeRoute(prop.layout + prop.path)
+                    }
+                    key={key}
                 >
-                <NavLink
+                    <NavLink
                     to={prop.layout + prop.path}
                     className="nav-link"
                     activeClassName="active"
-                >
+                    >
                     <i className={prop.icon} />
                     <p>{prop.name}</p>
-                </NavLink>
+                    </NavLink>
                 </li>
-            );
+                );
             return null;
-        })}
+            })}
         </Nav>
+        </div>
     </div>
-    </div>
-);
+    );
 }
 
 export default Sidebar;

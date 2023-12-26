@@ -1,8 +1,0 @@
-.footer-dropdown {
-    top: -120px !important;
-}
-
-.footer-dropdown:before,
-.footer-dropdown:after {
-    top: 300px !important;
-}
