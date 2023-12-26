@@ -4,7 +4,7 @@ import { Label } from "./Label";
 import { Input } from "./Input";
 import { Button } from "./Button";
 import { CardTitle, CardHeader, CardContent, Card } from "./Card";
-import styles from "../../css/FileUpload.module.css";
+import styles from "../../assets/css/FileUpload.module.css";
 
 export default function FileUpload() {
   return (
