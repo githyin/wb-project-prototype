@@ -14,7 +14,8 @@ function Chat() {
   const sendMessage = (event) => {
     event.preventDefault();
     if(socket && messageText.trim() !== '') {
-      socket.emit(JSON.stringify({userId: 'user1', text: messageText.trim()}));
+      //socket.emit(JSON.stringify({userId: 'user1', text: messageText.trim()}));
+      socket.emit('sendMessage', {userId: 'user1', text: messageText.trim()});
       setMessageText('');}
   }
 
