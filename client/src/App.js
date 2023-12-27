@@ -7,7 +7,7 @@ import io from "socket.io-client";
 import { SocketContext } from './socketContext';
 
 const App = () => {
-  const socket = io.connect("http://localhost:3001");
+  const socket = io.connect("http://localhost:5000");
   return (
     <SocketContext.Provider value={socket}>
     <BrowserRouter>
