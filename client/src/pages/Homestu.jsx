@@ -3,7 +3,6 @@ import SidenavStu from "../component/Sidebar/SidenavStu";
 import Navbar from "../component/Navbar/Navbar";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import CamScreen from "../component/CamScreen/CamScreen";
 import AccordionDashstu from "../component/Accordion/AccordionDashstu";
 import Footer from "../component/Footer/Footer";
 import Grid from '@mui/material/Grid';
@@ -16,7 +15,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import WavingHandIcon from '@mui/icons-material/WavingHand';
 import Face6Icon from '@mui/icons-material/Face6';
 
-export default function Streamingpro() {
+export default function Homestu() {
     return (
         <>
             <Navbar />
@@ -90,7 +89,7 @@ export default function Streamingpro() {
                         <Grid item xs={8}>
                             <Card sx={{ height: 60 + "vh" }}>
                                 <CardContent>
-                                    <CamScreen />
+
                                 </CardContent>
                             </Card>
                         </Grid>
