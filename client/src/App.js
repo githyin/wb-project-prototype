@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Home from "./views/home";
 import Homepro from "./pages/Homepro";
-import Homestu from "./pages/Hometu";
+import Homestu from "./pages/Homestu";
 import Streamingpro from "./pages/Streamingpro";
 import Streamingstu from "./pages/Streamingstu";
 import Fileupload from "./pages/Fileupload";
