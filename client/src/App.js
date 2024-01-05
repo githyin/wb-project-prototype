@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Home from "./views/home";
+import Home from "./pages/home";
 import Homepro from "./pages/Homepro";
 import Homestu from "./pages/Homestu";
 import Streamingpro from "./pages/Streamingpro";

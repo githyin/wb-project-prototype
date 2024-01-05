@@ -28,7 +28,12 @@ export default function Fileupload() {
                     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={8}>
-                                <Stack spacing={2} direction="row">
+                            <Card sx={{ height: 75 + "vh" }}>
+                                    <CardContent>
+                                        <FileUpload />
+                                    </CardContent>
+                                </Card>
+                                {/*<Stack spacing={2} direction="row">
                                     <Card sx={{ minWidth: 49 + "%", height: 150 }} className={styles.gradient}>
                                         <CardContent>
                                             <div className={styles.iconstylewhite}>
@@ -55,8 +60,8 @@ export default function Fileupload() {
                                                 Upload the Q&A of the lecture to the site and leave the answers to us!
                                             </Typography>
                                         </CardContent>
-                                    </Card>
-                                </Stack>
+                                    </Card> 
+                                </Stack>*/}
                             </Grid>
                             <Grid item xs={4}>
                                 <Stack spacing={2}>
@@ -84,20 +89,7 @@ export default function Fileupload() {
                                             </div>
                                         </Stack>
                                     </Card>
-                                </Stack>
-                            </Grid>
-                        </Grid>
-                        <Box height={20} />
-                        <Grid container spacing={2}>
-                            <Grid item xs={8}>
-                                <Card sx={{ height: 60 + "vh" }}>
-                                    <CardContent>
-                                        <FileUpload />
-                                    </CardContent>
-                                </Card>
-                            </Grid>
-                            <Grid item xs={4}>
-                                <Card sx={{ height: 60 + "vh" }}>
+                                    <Card sx={{ height: 58 + "vh" }}>
                                     <CardContent>
                                         <div className={styles.paddingall}>
                                             <span className={styles.univercitytitle}>How Using?</span>
@@ -106,8 +98,18 @@ export default function Fileupload() {
                                         <AccordionDashpro />
                                     </CardContent>
                                 </Card>
+                                </Stack>
                             </Grid>
                         </Grid>
+                        <Box height={20} />
+                        {/* <Grid container spacing={2}>
+                            <Grid item xs={8}>
+
+                            </Grid>
+                            <Grid item xs={4}>
+
+                            </Grid>
+                        </Grid> */}
                         <Footer />
                     </Box>
                 </Box>
