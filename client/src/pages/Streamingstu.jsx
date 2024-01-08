@@ -3,7 +3,7 @@ import SidenavStu from "../component/Sidebar/SidenavStu";
 import Navbar from "../component/Navbar/Navbar";
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import CamScreen from "../component/CamScreen/CamScreen";
+import CamScreenbot from "../component/CamScreen/CamScreenbot";
 import AccordionDashstu from "../component/Accordion/AccordionDashstu";
 import Footer from "../component/Footer/Footer";
 import Grid from '@mui/material/Grid';
@@ -90,7 +90,7 @@ export default function Streamingpro() {
                         <Grid item xs={8}>
                             <Card sx={{ height: 60 + "vh" }}>
                                 <CardContent>
-                                    <CamScreen />
+                                    <CamScreenbot />
                                 </CardContent>
                             </Card>
                         </Grid>

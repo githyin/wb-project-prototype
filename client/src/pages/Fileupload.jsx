@@ -28,40 +28,13 @@ export default function Fileupload() {
                     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
                         <Grid container spacing={2}>
                             <Grid item xs={8}>
-                            <Card sx={{ height: 75 + "vh" }}>
+                                <Card sx={{ height: 79 + "vh" }}>
                                     <CardContent>
                                         <FileUpload />
                                     </CardContent>
                                 </Card>
-                                {/*<Stack spacing={2} direction="row">
-                                    <Card sx={{ minWidth: 49 + "%", height: 150 }} className={styles.gradient}>
-                                        <CardContent>
-                                            <div className={styles.iconstylewhite}>
-                                                <WavingHandIcon />
-                                            </div>
-                                            <Typography gutterBottom variant="h5" component="div" sx={{ color: "#ffffff" }}>
-                                                Hello!
-                                            </Typography>
-                                            <Typography variant="body2" component="div" sx={{ color: "#ccd1d1" }}>
-                                                Let's learn our lectures more freely!
-                                                This program will help you manage your lectures and answer questions!
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                    <Card sx={{ minWidth: 49 + "%", height: 150 }} className={styles.gradient}>
-                                        <CardContent>
-                                            <div className={styles.iconstylewhite}>
-                                                <Face6Icon />
-                                            </div>
-                                            <Typography gutterBottom variant="h5" component="div" sx={{ color: "#ffffff" }}>
-                                                Professor
-                                            </Typography>
-                                            <Typography variant="body2" component="div" sx={{ color: "#ccd1d1" }}>
-                                                Upload the Q&A of the lecture to the site and leave the answers to us!
-                                            </Typography>
-                                        </CardContent>
-                                    </Card> 
-                                </Stack>*/}
+                                <Stack spacing={2} direction="row">
+                                </Stack>
                             </Grid>
                             <Grid item xs={4}>
                                 <Stack spacing={2}>
@@ -89,32 +62,31 @@ export default function Fileupload() {
                                             </div>
                                         </Stack>
                                     </Card>
-                                    <Card sx={{ height: 58 + "vh" }}>
-                                    <CardContent>
-                                        <div className={styles.paddingall}>
-                                            <span className={styles.univercitytitle}>How Using?</span>
-                                            <br />
-                                        </div>
-                                        <AccordionDashpro />
-                                    </CardContent>
-                                </Card>
+                                    <Card sx={{ height: 60.7 + "vh" }}>
+                                        <CardContent>
+                                            <div className={styles.paddingall}>
+                                                <span className={styles.univercitytitle}>How Using?</span>
+                                                <br />
+                                            </div>
+                                            <AccordionDashpro />
+                                        </CardContent>
+                                    </Card>
                                 </Stack>
                             </Grid>
                         </Grid>
+                        <Footer />
                         <Box height={20} />
-                        {/* <Grid container spacing={2}>
+                        <Grid container spacing={2}>
                             <Grid item xs={8}>
-
                             </Grid>
                             <Grid item xs={4}>
-
                             </Grid>
-                        </Grid> */}
-                        <Footer />
+                        </Grid>
+
                     </Box>
                 </Box>
             </div>
         </>
-
     )
 }
+
