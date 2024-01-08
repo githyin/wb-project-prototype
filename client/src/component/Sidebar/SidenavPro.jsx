@@ -18,7 +18,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import VideoChatIcon from '@mui/icons-material/VideoChat';
 import FileUploadIcon from '@mui/icons-material/FileUpload';
 import { useNavigate } from 'react-router-dom';
-import { useAppStore } from '../../assets/appStore';
+import { useAppStore } from '../../appStore';
 
 const drawerWidth = 240;
 
