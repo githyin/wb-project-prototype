@@ -102,7 +102,7 @@ const Message = ({ message }) => {
                 }}
             >
                 <Avatar sx={{ bgcolor: isBot ? "primary.main" : "secondary.main" }}>
-                    {isBot ? "B" : "U"}
+                    {isBot ? "AI" : "U"}
                 </Avatar>
                 <Paper
                     variant="outlined"

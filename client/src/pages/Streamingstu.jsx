@@ -7,6 +7,7 @@ import CamScreenbot from "../component/CamScreen/CamScreenbot";
 import CamScreentop from "../component/CamScreen/CamScreentop";
 import AccordionDashstu from "../component/Accordion/AccordionDashstu";
 import Footer from "../component/Footer/Footer";
+import Streamchat from "../component/ChatScreen/Streamchat";
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -41,37 +42,9 @@ export default function Streamingstu() {
                             </Grid>
                             <Grid item xs={4}>
                                 <Stack spacing={2}>
-                                    <Card className={styles.gradientlight}>
-                                        <Stack spacing={2} direction="row">
-                                            <div className={styles.iconstylewhite}>
-                                                <SchoolIcon />
-                                            </div>
-                                            <div className={styles.paddingall}>
-                                                <span className={styles.univercitytitle}>University</span>
-                                                <br />
-                                                <span className={styles.univercitysubtitle}>WooSong Univ.</span>
-                                            </div>
-                                        </Stack>
-                                    </Card>
-                                    <Card className={styles.gradientlight}>
-                                        <Stack spacing={2} direction="row">
-                                            <div className={styles.iconstylewhite}>
-                                                <MenuBookIcon />
-                                            </div>
-                                            <div className={styles.paddingall}>
-                                                <span className={styles.univercitytitle}>Lecture</span>
-                                                <br />
-                                                <span className={styles.univercitysubtitle}>BIT Project</span>
-                                            </div>
-                                        </Stack>
-                                    </Card>
-                                    <Card sx={{ height: 60.7 + "vh" }}>
+                                    <Card sx={{ height: 79 + "vh" }}>
                                         <CardContent>
-                                            <div className={styles.paddingall}>
-                                                <span className={styles.univercitytitle}>How Using?</span>
-                                                <br />
-                                            </div>
-                                            <AccordionDashstu />
+                                            <Streamchat />
                                         </CardContent>
                                     </Card>
                                 </Stack>

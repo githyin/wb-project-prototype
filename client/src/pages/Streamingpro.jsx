@@ -6,6 +6,7 @@ import AccordionDashpro from "../component/Accordion/AccordionDashpro";
 import Typography from '@mui/material/Typography';
 import CamScreenbot from "../component/CamScreen/CamScreenbot";
 import CamScreentop from "../component/CamScreen/CamScreentop";
+import Streamchat from "../component/ChatScreen/Streamchat";
 import Footer from "../component/Footer/Footer";
 import styles from "../assets/css/Dash.module.css";
 import Grid from '@mui/material/Grid';
@@ -41,37 +42,9 @@ export default function Streamingpro() {
                             </Grid>
                             <Grid item xs={4}>
                                 <Stack spacing={2}>
-                                    <Card className={styles.gradientlight}>
-                                        <Stack spacing={2} direction="row">
-                                            <div className={styles.iconstylewhite}>
-                                                <SchoolIcon />
-                                            </div>
-                                            <div className={styles.paddingall}>
-                                                <span className={styles.univercitytitle}>University</span>
-                                                <br />
-                                                <span className={styles.univercitysubtitle}>WooSong Univ.</span>
-                                            </div>
-                                        </Stack>
-                                    </Card>
-                                    <Card className={styles.gradientlight}>
-                                        <Stack spacing={2} direction="row">
-                                            <div className={styles.iconstylewhite}>
-                                                <MenuBookIcon />
-                                            </div>
-                                            <div className={styles.paddingall}>
-                                                <span className={styles.univercitytitle}>Lecture</span>
-                                                <br />
-                                                <span className={styles.univercitysubtitle}>BIT Project</span>
-                                            </div>
-                                        </Stack>
-                                    </Card>
-                                    <Card sx={{ height: 60.7 + "vh" }}>
+                                    <Card sx={{ height: 79 + "vh" }}>
                                         <CardContent>
-                                            <div className={styles.paddingall}>
-                                                <span className={styles.univercitytitle}>How Using?</span>
-                                                <br />
-                                            </div>
-                                            <AccordionDashpro />
+                                            <Streamchat />
                                         </CardContent>
                                     </Card>
                                 </Stack>
