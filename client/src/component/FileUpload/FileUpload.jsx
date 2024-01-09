@@ -1,9 +1,9 @@
 import React from "react";
 import { Label } from "./Label";
-import { Button } from "./Button";
 import { CardTitle, CardHeader, CardContent, Card } from "./Card";
 import styles from "../../assets/css/FileUpload.module.css";
 import { DropzoneArea } from 'material-ui-dropzone';
+import { Grid, Button, Box } from "@mui/material";
 
 export default function FileUpload() {
   return (
@@ -26,30 +26,59 @@ export default function FileUpload() {
                 className={`${styles.selectedFileItem} py-2 flex justify-between items-center`}
               >
                 <span>file1.jpg</span>
-                <Button size="sm" variant="outline">
-                  Remove
-                </Button>
+                <Grid item xs={2}>
+                  <Button
+                    fullWidth
+                    color="inherit"
+                    variant="contained"
+                  >
+                    Remove
+                  </Button>
+                </Grid>
               </li>
               <li
                 className={`${styles.selectedFileItem} py-2 flex justify-between items-center`}
               >
                 <span>file2.png</span>
-                <Button size="sm" variant="outline">
-                  Remove
-                </Button>
+                <Grid item xs={2}>
+                  <Button
+                    fullWidth
+                    color="inherit"
+                    variant="contained"
+                  >
+                    Remove
+                  </Button>
+                </Grid>
               </li>
               <li
                 className={`${styles.selectedFileItem} py-2 flex justify-between items-center`}
               >
                 <span>document.pdf</span>
-                <Button size="sm" variant="outline">
-                  Remove
-                </Button>
+                <Grid item xs={2}>
+                  <Button
+                    fullWidth
+                    color="inherit"
+                    variant="contained"
+                  >
+                    Remove
+                  </Button>
+                </Grid>
               </li>
             </ul>
           </CardContent>
         </Card>
       </div>
+      <Grid item xs={13}>
+        <Box display="flex" justifyContent="flex-end">
+          <Button
+            fullWidth
+            color="primary"
+            variant="contained"
+          >
+            Submit
+          </Button>
+        </Box>
+      </Grid>
     </div>
   );
 }

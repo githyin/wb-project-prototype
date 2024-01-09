@@ -1,132 +1,124 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import Divider from '@material-ui/core/Divider';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@mui/material/Typography';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import Avatar from '@material-ui/core/Avatar';
-import Fab from '@material-ui/core/Fab';
-import SendIcon from '@mui/icons-material/Send';
+import * as React from "react";
+import {
+    Box,
+    TextField,
+    Button,
+    Typography,
+    Avatar,
+    Grid,
+    Paper,
+} from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
 
-const useStyles = makeStyles({
-    table: {
-        minWidth: 650,
-    },
-    chatSection: {
-        width: '100%',
-        height: '80%'
-    },
-    headBG: {
-        backgroundColor: '#e0e0e0'
-    },
-    borderRight500: {
-        borderRight: '1px solid #e0e0e0'
-    },
-    messageArea: {
-        height: '45vh',
-        overflowY: 'auto'
-    }
-});
+const messages = [
+    { id: 1, text: "Hi there!", sender: "bot" },
+    { id: 2, text: "Hello!", sender: "user" },
+    { id: 3, text: "How can I assist you today?", sender: "bot" },
+];
 
 const Chatbotscreen = () => {
-    const classes = useStyles();
+    const [input, setInput] = React.useState("");
+    const [height, setHeight] = React.useState(window.innerHeight * 0.79); // 초기 높이 설정
+
+    // 화면 크기 변경시 높이 업데이트
+    React.useEffect(() => {
+        const handleResize = () => setHeight(window.innerHeight * 0.79);
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const handleSend = () => {
+        if (input.trim() !== "") {
+            console.log(input);
+            setInput("");
+        }
+    };
+
+    const handleInputChange = (event) => {
+        setInput(event.target.value);
+    };
 
     return (
-        <div>
-            <Grid container>
-                <Grid item xs={12} >
-                    <Typography variant="h5" className="header-message">Chat</Typography>
-                </Grid>
-            </Grid>
-            <Grid container component={Paper} className={classes.chatSection}>
-                <Grid item xs={3} className={classes.borderRight500}>
-                    <List>
-                        <ListItem button key="user">
-                            <ListItemIcon>
-                                <Avatar alt="user" src="https://material-ui.com/static/images/avatar/4.jpg" />
-                            </ListItemIcon>
-                            <ListItemText primary="User"></ListItemText>
-                        </ListItem>
-                    </List>
-                    <Divider />
-                    <Grid item xs={12} style={{ padding: '10px' }}>
-                        <TextField id="outlined-basic-email" label="Search" variant="outlined" fullWidth />
+        <Box
+            sx={{
+                height: `${height}px`,
+                display: "flex",
+                flexDirection: "column",
+                bgcolor: "grey.200",
+            }}
+        >
+            <Box sx={{ flexGrow: 1, overflow: "auto", p: 2 }}>
+                {messages.map((message) => (
+                    <Message key={message.id} message={message} />
+                ))}
+            </Box>
+            <Box sx={{ p: 2, backgroundColor: "background.default" }}>
+                <Grid container spacing={2}>
+                    <Grid item xs={10}>
+                        <TextField
+                            size="small"
+                            fullWidth
+                            placeholder="Type a message"
+                            variant="outlined"
+                            value={input}
+                            onChange={handleInputChange}
+                        />
                     </Grid>
-                    <Divider />
-                    <List>
-                        <ListItem button key="BOT1">
-                            <ListItemIcon>
-                                <Avatar alt="BOT1" src="https://material-ui.com/static/images/avatar/1.jpg" />
-                            </ListItemIcon>
-                            <ListItemText primary="BOT1">BOT1</ListItemText>
-                            <ListItemText secondary="online" align="right"></ListItemText>
-                        </ListItem>
-                        <ListItem button key="BOT2">
-                            <ListItemIcon>
-                                <Avatar alt="BOT2" src="https://material-ui.com/static/images/avatar/3.jpg" />
-                            </ListItemIcon>
-                            <ListItemText primary="BOT2">BOT2</ListItemText>
-                        </ListItem>
-                        <ListItem button key="BOT3">
-                            <ListItemIcon>
-                                <Avatar alt="BOT3" src="https://material-ui.com/static/images/avatar/2.jpg" />
-                            </ListItemIcon>
-                            <ListItemText primary="BOT3">BOT3</ListItemText>
-                        </ListItem>
-                    </List>
-                </Grid>
-                <Grid item xs={9}>
-                    <List className={classes.messageArea}>
-                        <ListItem key="1">
-                            <Grid container>
-                                <Grid item xs={12}>
-                                    <ListItemText align="right" primary="Hey man, What's up ?"></ListItemText>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <ListItemText align="right" secondary="09:30"></ListItemText>
-                                </Grid>
-                            </Grid>
-                        </ListItem>
-                        <ListItem key="2">
-                            <Grid container>
-                                <Grid item xs={12}>
-                                    <ListItemText align="left" primary="Hey, Iam Good! What about you ?"></ListItemText>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <ListItemText align="left" secondary="09:31"></ListItemText>
-                                </Grid>
-                            </Grid>
-                        </ListItem>
-                        <ListItem key="3">
-                            <Grid container>
-                                <Grid item xs={12}>
-                                    <ListItemText align="right" primary="Cool. i am good, let's catch up!"></ListItemText>
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <ListItemText align="right" secondary="10:30"></ListItemText>
-                                </Grid>
-                            </Grid>
-                        </ListItem>
-                    </List>
-                    <Divider />
-                    <Grid container style={{ padding: '5px' }}>
-                        <Grid item xs={11}>
-                            <TextField id="outlined-basic-email" label="Type Something" fullWidth />
-                        </Grid>
-                        <Grid xs={1} align="right">
-                            <Fab color="primary" aria-label="add"><SendIcon /></Fab>
-                        </Grid>
+                    <Grid item xs={2}>
+                        <Button
+                            fullWidth
+                            color="primary"
+                            variant="contained"
+                            endIcon={<SendIcon />}
+                            onClick={handleSend}
+                        >
+                            Send
+                        </Button>
                     </Grid>
                 </Grid>
-            </Grid>
-        </div>
+            </Box>
+        </Box>
     );
-}
+};
+
+const Message = ({ message }) => {
+    const isBot = message.sender === "bot";
+
+    return (
+        <Box
+            sx={{
+                display: "flex",
+                justifyContent: isBot ? "flex-start" : "flex-end",
+                mb: 2,
+            }}
+        >
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: isBot ? "row" : "row-reverse",
+                    alignItems: "center",
+                }}
+            >
+                <Avatar sx={{ bgcolor: isBot ? "primary.main" : "secondary.main" }}>
+                    {isBot ? "B" : "U"}
+                </Avatar>
+                <Paper
+                    variant="outlined"
+                    sx={{
+                        p: 2,
+                        ml: isBot ? 1 : 0,
+                        mr: isBot ? 0 : 1,
+                        backgroundColor: isBot ? "primary.light" : "secondary.light",
+                        borderRadius: isBot ? "20px 20px 20px 5px" : "20px 20px 5px 20px",
+                    }}
+                >
+                    <Typography variant="body1">{message.text}</Typography>
+                </Paper>
+            </Box>
+        </Box>
+    );
+};
 
 export default Chatbotscreen;
